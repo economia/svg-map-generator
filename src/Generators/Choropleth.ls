@@ -5,9 +5,9 @@ require! {
     "./Scale"
 }
 
-module.exports = class ChoroplethQuantitative extends BaseSvg
-    (@features) ->
-        super @features, \path
+module.exports = class Choropleth extends BaseSvg
+    (@featureData) ->
+        super @featureData, \path
         @fillScale = new Scale!
 
     getSVG: ->
