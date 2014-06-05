@@ -26,8 +26,10 @@ describe "Choropleth" ->
             ..fill values
         svg := generator.getSVG!
         svg := annotateToStandaloneSvg svg
-        controlSvg = fs.readFileSync "#__dirname/../data/choropleth_basic.svg"
-        expect svg .to.equal controlSvg.toString!
+        controlSvg = fs.readFileSync "#__dirname/../data/choropleth_basic.svg" .toString!
+        controlSvg .= replace /[\n\r]/g ''
+        svg .= replace /[\r\n]/g ''
+        expect svg .to.equal controlSvg
 
     test "should be able to change fill on-the-fly" ->
         values = features.map -> it.properties.EPP / it.properties.voters
@@ -38,8 +40,10 @@ describe "Choropleth" ->
             ..fill values
 
         svg = annotateToStandaloneSvg generator.getSVG!
-        controlSvg = fs.readFileSync "#__dirname/../data/choropleth_basic2.svg"
-        expect svg .to.equal controlSvg.toString!
+        controlSvg = fs.readFileSync "#__dirname/../data/choropleth_basic2.svg" .toString!
+        controlSvg .= replace /[\n\r]/g ''
+        svg .= replace /[\r\n]/g ''
+        expect svg .to.equal controlSvg
 
     test "should be able to output ordinal SVGs" ->
         parties = <[SD EPP EAF G ALDE NI GUE ECR UEN]>
@@ -62,5 +66,7 @@ describe "Choropleth" ->
                 ..setOutput colors
 
         svg = generator.getSVG!
-        controlSvg = fs.readFileSync "#__dirname/../data/choropleth_ordinal.svg"
-        expect svg .to.equal controlSvg.toString!
+        controlSvg = fs.readFileSync "#__dirname/../data/choropleth_ordinal.svg" .toString!
+        controlSvg .= replace /[\n\r]/g ''
+        svg .= replace /[\r\n]/g ''
+        expect svg .to.equal controlSvg
