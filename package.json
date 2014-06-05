@@ -1,0 +1,39 @@
+{
+  "name": "svg-map-generator",
+  "version": "0.0.1",
+  "description": "Tool to create SVG maps from shapefile/GeoJSON/TopoJSON",
+  "main": "./bin/base.js",
+  "engines": {
+    "node": "*"
+  },
+  "bin": {
+    "svg-mapper": "./bin/base.js"
+  },
+  "dependencies": {
+    "expect.js": "~0.3.1",
+    "topojson": "~1.6.14",
+    "d3": "~3.4.8",
+    "jsdom": "~0.10.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "prepublish": "slake build",
+    "test": "slake test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/economia/svg-map-generator.git"
+  },
+  "keywords": [
+    "SVG",
+    "WebMercator",
+    "Tiles",
+    "Map",
+    "Mapping"
+  ],
+  "author": "Economia a.s.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/economia/svg-map-generator/issues"
+  }
+}
